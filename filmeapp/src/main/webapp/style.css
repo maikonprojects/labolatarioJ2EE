@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.box-addFilme{
+	display: flex;
+	align-items: center;	
+}
+
+.post {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.post:hover {
+    background-color: #357a38;
+    color: #e0ffe0;
+}
+.close{
+    background-color: #af2222;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.close:hover{
+    background-color: #7f1414;
+
+}
+
+.edit-btn{
+    background-color: #1276b1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.edit-btn:hover{
+    background-color: #093651;
+
+}
+
+
+
+ul {
+    width: 50vw;
+}
+
+li {
+    background: #f8ecc7;
+    padding: 5px;
+    border: 1px black solid;
+    list-style: none;
+}
+.container-pai{
+	display: flex;
+    justify-content: space-around;
+}
+
+   table {
+        width: 85vw;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    
+/*----------------- POP UP --------------- */
+   
+   /* Modal padrão */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Botão fechar (X) */
+.close-modal {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Botão fechar (X) */
+.close-modal-post {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-moda-post:hover {
+    color: #000;
+}
+
+/* Botão editar */
+button.put {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.put:hover {
+    background-color: #45a049;
+}
+   
