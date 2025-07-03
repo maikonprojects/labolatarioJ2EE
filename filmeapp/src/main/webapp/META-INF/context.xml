@@ -1,0 +1,13 @@
+<Context>
+    <Resource name="jdbc/FilmeDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/filmesdb"
+              username="root"
+              password="solutis"
+              maxTotal="100"
+              maxIdle="30"
+              maxWaitMillis="10000"/>
+</Context>

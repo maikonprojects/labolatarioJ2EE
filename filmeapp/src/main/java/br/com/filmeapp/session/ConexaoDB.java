@@ -4,21 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class ConexaoDB {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/filmesdb";
-    private static final String USER = "root";
-    private static final String PASSWORD = "solutis";
-
-    static {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Carrega o driver uma única vez
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-    }
+	 public static Connection getConnection() throws SQLException {
+	        try {
+	            InitialContext ctx = new InitialContext();
+	            DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/FilmeDB");
+	            return ds.getConnection();
+	        } catch (NamingException e) {
+	            throw new SQLException("Erro ao buscar DataSource via JNDI", e);
+	        }
+	    }
 }
