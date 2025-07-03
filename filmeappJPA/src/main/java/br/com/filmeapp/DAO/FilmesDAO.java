@@ -27,7 +27,7 @@ public class FilmesDAO {
 	        return em.createQuery("SELECT f FROM Filme f", Filme.class).getResultList();
 	    }
     
-	    public List<Filme> adicionarFilme(String nomeFilme) {
+	    public List<Filme> adicionarFilme(String nomeFilme, Double notaFilme) {
 	        List<Filme> lista = new ArrayList<>();
 
 	        try {
@@ -37,6 +37,7 @@ public class FilmesDAO {
 	            // Criar e persistir o novo filme
 	            Filme novoFilme = new Filme();
 	            novoFilme.setNome(nomeFilme);
+	            novoFilme.setNota(notaFilme);
 	            em.persist(novoFilme);
 
 	            // Buscar todos os filmes após inserção
@@ -88,6 +89,7 @@ public class FilmesDAO {
             
             if (existente != null) {
                 existente.setNome(filme.getNome());
+                existente.setNota(filme.getNota());
                 em.merge(existente); 
                 System.out.println("✅ DAO DENTRO TRY");
                 tx.commit();

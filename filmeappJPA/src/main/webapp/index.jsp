@@ -18,6 +18,7 @@
 			    <thead>
 			        <tr>
 			            <th>Nome</th>
+			            <th>Nota</th>
 			            <th>Deletar</th>
 			            <th>Editar</th>
 			        </tr>
@@ -37,6 +38,7 @@
 			        %>
 			        <tr>
 			            <td><%= f.getNome() %></td>
+			            <td><%= f.getNota() %></td>
 			            <td>
 			            <form action="filmes" method="post">
 						    <input type="hidden" name="action" value="delete" />
@@ -46,12 +48,14 @@
 			            </td>
 			           
 			           <td>
-					    <button class="edit-btn" 
-					            data-id="<%= f.getId() %>" 
-					            data-nome="<%= f.getNome() %>">
-					        <i class="fa-solid fa-pen"></i>
-					    </button>
-					</td>
+					   <button class="edit-btn" 
+						        data-id="<%= f.getId() %>" 
+						        data-nome="<%= f.getNome() %>" 
+						        data-nota="<%= f.getNota() %>">
+						    <i class="fa-solid fa-pen"></i>
+						</button>
+						</td>
+						
 			        </tr>
 			        <%
 			                }
@@ -74,6 +78,7 @@
             <input type="hidden" name="action" value="put" />
             <input type="hidden" name="idFilme" id="modalIdFilme" />
             <input type="text" name="nomeFilme" id="modalNomeFilme" placeholder="Novo nome do filme" required />
+            <input type="text" name="notaFilme" id="modalNotaFilme" placeholder="Nova nota do filme" required />
             <button class="put" type="submit">Salvar Alterações</button>
         </form>
     </div>
@@ -86,7 +91,20 @@
         <form action="filmes" method="post">
 		  		<input type="hidden" name="action" value="post" />
 		        <input type="text" name="nomeFilme" placeholder="Digite o nome do filme" required />
+		        <input type="text" name="notaFilme" placeholder="Digite a nota do filme" required />
 		        <button class="post" type="submit">Adicionar Filme</button>
+		 </form>
+    </div>
+</div>
+
+<div id="postNotaModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal-post-nota">&times;</span>
+        <h2>Avaliação filme</h2>
+        <form action="filmes" method="post">
+		  		<input type="hidden" name="action" value="post" />
+		        <input type="text" name="nota" placeholder="Digite a nota do filme" required />
+		        <button class="post" type="submit">Dar nota</button>
 		 </form>
     </div>
 </div>
@@ -103,6 +121,7 @@
             const modal = document.getElementById("editModal");
             document.getElementById("modalIdFilme").value = btn.dataset.id;
             document.getElementById("modalNomeFilme").value = btn.dataset.nome;
+            document.getElementById("modalNotaFilme").value = btn.dataset.nota;
             modal.style.display = "block";
         });
     });
@@ -111,6 +130,14 @@
     document.querySelectorAll(".post-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const modal = document.getElementById("postModal");
+            
+            modal.style.display = "block";
+        });
+    });
+ 
+    document.querySelectorAll(".post-nota-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const modal = document.getElementById("postNotaModal");
             
             modal.style.display = "block";
         });
@@ -126,6 +153,10 @@
         document.getElementById("postModal").style.display = "none";
     }
 
+ // Fechar o modal post
+    document.querySelector(".close-modal-post-nota").onclick = function () {
+        document.getElementById("postNotaModal").style.display = "none";
+    }
 
 </script>
 

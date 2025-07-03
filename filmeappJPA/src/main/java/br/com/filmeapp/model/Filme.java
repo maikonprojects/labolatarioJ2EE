@@ -12,6 +12,7 @@ public class Filme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
     private String nome;
+    private Double nota;
 
     public Filme(int id, String nome) {
         this.id = id;
@@ -20,6 +21,10 @@ public class Filme {
 
     public int getId() {
         return id;
+    }
+    
+    public Double getNota() {
+        return nota;
     }
 
     public String getNome() {
@@ -32,6 +37,10 @@ public class Filme {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public void setNota(Double nota) {
+        this.nota = nota;
     }
     
     public Filme() {}

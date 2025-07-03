@@ -21,9 +21,9 @@ public class FilmeSession {
 		
 	}
 
-	public void inserir(String nomeFilme) {
+	public void inserir(String nomeFilme, Double notaFilme) {
 		
-		dao.adicionarFilme(nomeFilme);
+		dao.adicionarFilme(nomeFilme, notaFilme);
 		
 	}
 

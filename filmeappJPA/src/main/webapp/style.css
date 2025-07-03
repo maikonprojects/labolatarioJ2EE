@@ -5,8 +5,10 @@ body {
 }
 
 form {
-    margin-bottom: 20px;
     margin-top: 20px;
+}
+i{
+	cursor: pointer;
 }
 
 input, button {
@@ -25,6 +27,7 @@ input, button {
     background-color: #4CAF50;
     color: white;
     border: none;
+    margin-top: 10px;
     border-radius: 4px;
 }
 .post:hover {
@@ -136,7 +139,7 @@ li {
 }
 
 /* Botão fechar (X) */
-.close-modal-post {
+.close-modal-post, .close-modal-post-nota {
     float: right;
     font-size: 24px;
     font-weight: bold;

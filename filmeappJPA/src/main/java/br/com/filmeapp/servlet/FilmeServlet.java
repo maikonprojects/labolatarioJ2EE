@@ -46,14 +46,18 @@ public class FilmeServlet extends HttpServlet {
             
         } else if("post".equals(action)) {
             String nomeFilme = req.getParameter("nomeFilme");
-            session.inserir(nomeFilme);
+            String notaStr = req.getParameter("notaFilme");
+    	    Double notaFilme = Double.parseDouble(notaStr);
+            session.inserir(nomeFilme, notaFilme);
             
         } else if("put".equals(action)) {
         	 int idFilme = Integer.parseInt(req.getParameter("idFilme"));
         	    String nomeFilme = req.getParameter("nomeFilme"); 
+        	    String notaStr = req.getParameter("notaFilme");
+        	    Double notaFilme = Double.parseDouble(notaStr);
         	    Filme filme = new Filme();
         	    filme.setNome(nomeFilme);
-
+        	    filme.setNota(notaFilme);
         	    session.editarFilme(idFilme, filme);
         }
 
